@@ -1,0 +1,16 @@
+@(taskForm: Form[(String, String)])
+@import helper._
+@main(title = "Add member to DB") {
+    <h2>Add a new member</h2>
+
+    @form(routes.MemberController.addMember) {
+
+        @inputText(taskForm("name"), args = 'placeholder -> "Enter member name")
+        @inputText(taskForm("email"), args = 'placeholder -> "Enter member email")
+
+        &nbsp;
+
+        <input type="submit" value="Create" class="btn btn-large btn-success">
+
+    }
+}

@@ -1,0 +1,25 @@
+@(members: List[Member])
+@import helper._
+@main(title = "Members list") {
+    <h1>@members.size member(s)</h1>
+
+    <table style="text-align: center; border: 1px double black; width: 100%;">
+        <tr><th>Id</th><th>Name</th><th>Email</th><th></th></tr>
+        @members.map { member =>
+            <tr>
+                <td>@member.id</td>
+                <td>@member.name</td>
+                <td>@member.email</td>
+                <td>
+                    <table align=center>
+                        <td id="no">@form(routes.MemberController.removeMember(member.id)) {
+                            <input type="submit" class="btn btn-danger" value="Delete" onclick="return confirm('Are you sure?');">
+                        } </td>
+
+                    </table>
+                </td>
+            </tr>
+        }
+    </table>
+
+}

@@ -1,0 +1,16 @@
+@(idForm: Form[Long])
+@import helper._
+@main(title = "Member data") {
+    <h1>Member Info</h1>
+
+    @form(routes.MemberController.getMember) {
+
+        @inputText(idForm("id"), args = 'placeholder -> "Enter member id")
+
+        &nbsp;
+
+        <input type="submit" value="Display" class="btn btn-large btn-success">
+
+    }
+
+}
